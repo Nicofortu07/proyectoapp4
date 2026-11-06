@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App de Recomendaciones - Series</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#6c5ce7">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>🎬 Mis Recomendaciones de Series</h1>
+        <p>Compartí tus contenidos favoritos con la comunidad</p>
+    </header>
+
+    <main class="container">
+        <!-- Formulario de Alta -->
+        <section class="form-card">
+            <h2 id="form-titulo">Recomendar una Serie</h2>
+            
+            <form id="form-serie">
+                <input type="hidden" id="serie-id" value="">
+
+                <div class="form-group">
+                    <label for="titulo">Título de la serie:</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Ej: Stranger Things" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="genero">Género:</label>
+                    <select id="genero" name="genero" required>
+                        <option value="" disabled selected>Seleccioná un género</option>
+                        <option value="Ciencia Ficción">Ciencia Ficción</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Comedia">Comedia</option>
+                        <option value="Acción">Acción</option>
+                        <option value="Terror">Terror</option>
+                        <option value="Anime">Anime</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="puntuacion">Puntuación (1 al 5):</label>
+                    <input type="number" id="puntuacion" name="puntuacion" min="1" max="5" step="0.5" placeholder="5" required>
+                </div>
+
+                <!-- Input para subir archivo de imagen -->
+                <div class="form-group">
+                    <label for="imagen_file">Imagen de Portada (Subir archivo):</label>
+                    <input type="file" id="imagen_file" name="imagen_file" accept="image/*">
+                </div>
+
+                <!-- Campo alternativo por URL -->
+                <div class="form-group">
+                    <label for="imagen_url">O ingresá la URL de la portada:</label>
+                    <input type="url" id="imagen_url" name="imagen_url" placeholder="https://...">
+                </div>
+
+                <div class="form-group">
+                    <label for="resena">¿Por qué la recomendás?:</label>
+                    <textarea id="resena" name="resena" rows="4" placeholder="Escribí una breve reseña..." required></textarea>
+                </div>
+
+                <button type="submit" id="btn-submit" class="btn-primary">Publicar Recomendación</button>
+            </form>
+        </section>
+
+        <!-- Sección del Catálogo de Series -->
+        <section class="catalogo-section">
+            <h2>Catálogo de Recomendaciones</h2>
+            <div id="grid-series" class="grid-series">
+                <!-- Las tarjetas se generan dinámicamente desde main.js -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Proyecto App de Recomendaciones</p>
+    </footer>
+
+    <script src="supabaseClient.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "short_name": "AppSeries",
+  "name": "App de Recomendaciones de Series",
+  "icons": [
+    {
+      "src": "https://www.mubis.es/media/users/10058/92981/que-series-recomendais-para-este-verano-de-ocio-original.jpg",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#f8f9fa",
+  "theme_color": "#6c5ce7",
+  "display": "standalone",
+  "orientation": "portrait"
+}
